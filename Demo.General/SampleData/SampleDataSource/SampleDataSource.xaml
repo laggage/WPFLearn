@@ -1,0 +1,19 @@
+﻿<!--
+   *********  请勿修改此文件   *********
+   此文件由设计工具再生成。更改
+   此文件可能会导致错误。
+-->
+<SampleDataSource:SampleDataSource xmlns:SampleDataSource="clr-namespace:Expression.Blend.SampleData.SampleDataSource">
+	<SampleDataSource:SampleDataSource.Collection>
+		<SampleDataSource:Item Name="Aaberg, Jesper" Sex="男"/>
+		<SampleDataSource:Item Name="Adams, Ellen" Sex="男"/>
+		<SampleDataSource:Item Name="Adams, Terry" Sex="男"/>
+		<SampleDataSource:Item Name="Adams, Terry" Sex="女"/>
+		<SampleDataSource:Item Name="Pfeiffer, Michael" Sex="男"/>
+		<SampleDataSource:Item Name="Philips, Carol" Sex="女"/>
+		<SampleDataSource:Item Name="Poe, Toni" Sex="男"/>
+		<SampleDataSource:Item Name="Hicks, Cassie" Sex="女"/>
+		<SampleDataSource:Item Name="Argentiero, Luca" Sex="女"/>
+		<SampleDataSource:Item Name="Perry, Brian" Sex="女"/>
+	</SampleDataSource:SampleDataSource.Collection>
+</SampleDataSource:SampleDataSource>

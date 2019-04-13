@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{55C4523C-5033-446E-897E-FCC7CF06AA40}</ProjectGuid>
+    <ProjectGuid>{D4607E51-9632-448C-B7AD-9F845B82265C}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>Shape_and_Geometry</RootNamespace>
-    <AssemblyName>Shape and Geometry</AssemblyName>
+    <RootNamespace>Demo.DataTrigger</RootNamespace>
+    <AssemblyName>Demo.DataTrigger</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -54,17 +54,14 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="View\Geometry.xaml.cs">
-      <DependentUpon>Geometry.xaml</DependentUpon>
+    <Compile Include="PathValidateConverter.cs" />
+    <Compile Include="Place.cs" />
+    <Compile Include="Places.cs" />
+    <Compile Include="Views\Demo.xaml.cs">
+      <DependentUpon>Demo.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\GeometryClip.xaml.cs">
-      <DependentUpon>GeometryClip.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="View\GeometryDrawing.xaml.cs">
-      <DependentUpon>GeometryDrawing.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="View\PathGeometry.xaml.cs">
-      <DependentUpon>PathGeometry.xaml</DependentUpon>
+    <Compile Include="Views\OfficialDemo%281%29.xaml.cs">
+      <DependentUpon>OfficialDemo%281%29.xaml</DependentUpon>
     </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -78,19 +75,11 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="View\Geometry.xaml">
+    <Page Include="Views\Demo.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\GeometryClip.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="View\GeometryDrawing.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="View\PathGeometry.xaml">
+    <Page Include="Views\OfficialDemo%281%29.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -120,6 +109,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\icons8-thumbnails-80.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -1,0 +1,20 @@
+﻿<UserControl x:Class="Shape_and_Geometry.View.GeometryClip"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <UserControl.Resources>
+        <GeometryGroup x:Key="clipGeometry" FillRule="Nonzero">
+            <EllipseGeometry Center="100 100" RadiusX="50" RadiusY="100"/>
+            <EllipseGeometry Center="100 100" RadiusX="100" RadiusY="50"/>
+        </GeometryGroup>
+    </UserControl.Resources>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Image Source="E:\Media\Images\壁纸\ (1).jpg" Clip="{StaticResource clipGeometry}"/>
+        <Image Source="E:\Media\Images\壁纸\ (2).jpg"
+               Grid.Column="1"
+               Clip="{StaticResource clipGeometry}"/>
+    </Grid>
+</UserControl>

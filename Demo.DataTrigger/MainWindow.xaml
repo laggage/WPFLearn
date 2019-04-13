@@ -1,21 +1,18 @@
-﻿<Window x:Class="Shape_and_Geometry.MainWindow"
+﻿<Window x:Class="Demo.DataTrigger.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:view="clr-namespace:Shape_and_Geometry.View"
+        xmlns:local="clr-namespace:Demo.DataTrigger"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <Border Padding="10">
+    <Border>
         <TabControl>
-            <TabItem Header="Geometry" >
-                <view:Geometry/>
+            <TabItem Header="官方Demo - 1">
+                <Frame Source="/Views/OfficialDemo(1).xaml" NavigationUIVisibility="Hidden"/>
             </TabItem>
-            <TabItem Header="PathGeometry">
-                <view:PathGeometry/>
-            </TabItem>
-            <TabItem Header="GeometryClip">
-                <view:GeometryClip></view:GeometryClip>
+            <TabItem Header="Demo">
+                <Frame Source="/Views/Demo.xaml" NavigationUIVisibility="Hidden"/>
             </TabItem>
         </TabControl>
     </Border>

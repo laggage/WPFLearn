@@ -1,0 +1,39 @@
+﻿<Page x:Class="Demo.DataTrigger.Views.Demo"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Demo.DataTrigger.Views"
+      xmlns:system="clr-namespace:System;assembly=mscorlib"
+      xmlns:dataTrigger="clr-namespace:Demo.DataTrigger"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="Demo">
+    <Border>
+        <StackPanel VerticalAlignment="Center">
+            <StackPanel.Resources>
+                <dataTrigger:PathValidateConverter x:Key="Converter"></dataTrigger:PathValidateConverter>
+            </StackPanel.Resources>
+            <Image Name="Img" MaxHeight="100" MaxWidth="100">
+                <Image.Style>
+                    <Style TargetType="Image">
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding Path=ThumbnailPath,Mode=OneWay,Converter={StaticResource Converter}}"
+                                         Value="False">
+                                <Setter Property="Source" Value="/Resources/Images/icons8-thumbnails-80.png"/>
+                            </DataTrigger>
+                            <DataTrigger Binding="{Binding Path=ThumbnailPath,Mode=OneWay,Converter={StaticResource Converter}}"
+                                         Value="True">
+                                <Setter Property="Source" Value="E:\\Media\\Images\\Src\\s.png"/>
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </Image.Style>
+            </Image>
+            <CheckBox Content="设置ThumbnailPath为有效的路径值" 
+                      Checked="CheckBox_Checked" Unchecked="CheckBox_Unchecked"/>
+
+            <TextBlock Margin="20 30" Text="{Binding ElementName=Img, Path=Source}"/>
+        </StackPanel>
+    </Border>
+</Page>

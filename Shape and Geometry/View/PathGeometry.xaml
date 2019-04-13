@@ -1,0 +1,84 @@
+﻿<UserControl x:Class="Shape_and_Geometry.View.PathGeometry"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Shape_and_Geometry.View"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <ScrollViewer VerticalScrollBarVisibility="Auto">
+        <WrapPanel Orientation="Vertical">
+            <WrapPanel.Resources>
+                <Style TargetType="{x:Type TextBlock}">
+                    <Setter Property="FontSize" Value="20"/>
+                    <Setter Property="Margin" Value="20 0 "/>
+                    <Setter Property="Foreground" Value="Red"/>
+                    <Setter Property="FontWeight" Value="Bold"/>
+                    <Setter Property="HorizontalAlignment" Value="Stretch"/>
+                    <Setter Property="VerticalAlignment" Value="Center"/>
+                </Style>
+
+                <Style TargetType="{x:Type StackPanel}">
+                    <Setter Property="Orientation" Value="Horizontal"/>
+                    <Setter Property="Margin" Value="0 10"/>
+                    <Setter Property="HorizontalAlignment" Value="Stretch"/>
+                </Style>
+            </WrapPanel.Resources>
+            <!-- LineSegment -->
+            <StackPanel>
+                <Path Stroke="Aqua" StrokeThickness="3" >
+                    <Path.Data>
+                        <PathGeometry>
+                            <PathGeometry.Figures>
+                                <PathFigure>
+                                    <LineSegment Point="50 50"/>
+                                </PathFigure>
+                                <PathFigure StartPoint="50 0">
+                                    <LineSegment Point="0 50"></LineSegment>
+                                </PathFigure>
+                            </PathGeometry.Figures>
+                        </PathGeometry>
+                    </Path.Data>
+                </Path>
+                <TextBlock Text="Line"/>
+            </StackPanel>
+            <!-- LineSegment -->
+            <StackPanel>
+                <Path  Stroke="#FFD8C54E">
+                    <Path.Data>
+                        <PathGeometry>
+                            <PathFigure StartPoint="0 0" IsClosed="False">
+                                <ArcSegment IsLargeArc="False" Point="100 20" Size="90 80"/>
+                            </PathFigure>
+                            <PathFigure StartPoint="0 30">
+                                <ArcSegment IsLargeArc="True" Point="100 50" Size="90 80"></ArcSegment>
+                            </PathFigure>
+                        </PathGeometry>
+                    </Path.Data>
+                </Path>
+                <TextBlock Text="(弧线) ArcSegment"/>
+            </StackPanel>
+            <StackPanel>
+                <Path Stroke="Yellow">
+                    <Path.Data>
+                        <PathGeometry>
+                            <PathFigure StartPoint="0 0">
+                                <BezierSegment Point1=" 20 40" Point2="40 0" Point3="80 0"></BezierSegment>
+                            </PathFigure>
+                            <PathFigure StartPoint="0 0">
+                                <LineSegment Point="20 40"/>
+                                <LineSegment Point="40 0"/>
+                                <LineSegment Point="80 0"/>
+                            </PathFigure>
+                        </PathGeometry>
+                    </Path.Data>
+                </Path>
+                <TextBlock Text="贝塞尔曲线"/>
+            </StackPanel>
+            <StackPanel>
+                <!--<Path Stroke="#FF37B3EE"  Data="M 10,100 L 100,100 L 100,50 Z"/>-->
+                <Path Stroke="#FF37B3EE"  Data="M10 100 L100 100 L100 50 Z"/>
+            </StackPanel>
+        </WrapPanel>
+    </ScrollViewer>
+</UserControl>

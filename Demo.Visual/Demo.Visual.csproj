@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{55C4523C-5033-446E-897E-FCC7CF06AA40}</ProjectGuid>
+    <ProjectGuid>{E6853EE8-ED91-402F-A49F-CE38C5A6CF9C}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>Shape_and_Geometry</RootNamespace>
-    <AssemblyName>Shape and Geometry</AssemblyName>
+    <RootNamespace>Demo.Visual</RootNamespace>
+    <AssemblyName>Demo.Visual</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -54,18 +54,8 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="View\Geometry.xaml.cs">
-      <DependentUpon>Geometry.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="View\GeometryClip.xaml.cs">
-      <DependentUpon>GeometryClip.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="View\GeometryDrawing.xaml.cs">
-      <DependentUpon>GeometryDrawing.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="View\PathGeometry.xaml.cs">
-      <DependentUpon>PathGeometry.xaml</DependentUpon>
-    </Compile>
+    <Compile Include="SectorVisual.cs" />
+    <Compile Include="VisualContainer.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -78,22 +68,6 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="View\Geometry.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="View\GeometryClip.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="View\GeometryDrawing.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="View\PathGeometry.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
