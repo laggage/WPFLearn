@@ -3,10 +3,24 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-      xmlns:control="clr-namespace:Demo.DIYControl.Controls"
+      xmlns:deepInDIYCtrl="clr-namespace:Demo.DIYControl.Controls.DeepInDIY"
       mc:Ignorable="d" 
       Title="ColorPickerDemoPage">
-    <WrapPanel>
-        <control:ColorPicker Color="Gray"/>
+    <WrapPanel Orientation="Vertical">
+        <!--<control:ColorPicker Color="Gray"/>-->
+        <deepInDIYCtrl:ColorPicker x:Name="ColorPicker" 
+                                   UseDynamicBorder="True" 
+                                   BorderBrush="Red"
+                                   BorderThickness="1"
+                                   CornerRadius="2"
+                                   Margin="10"/>
+        <StackPanel Orientation="Horizontal">
+            <TextBlock HorizontalAlignment="Center"
+                       VerticalAlignment="Center"
+                       Text="UseDynamicBorder"
+                       Padding="5 0"/>
+            <CheckBox Margin="5" 
+                      IsChecked="{Binding ElementName=ColorPicker,Path=UseDynamicBorder,Mode=TwoWay}"/>
+        </StackPanel>
     </WrapPanel>
 </Page>

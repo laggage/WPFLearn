@@ -58,8 +58,12 @@
       <DependentUpon>ColorPicker.xaml</DependentUpon>
     </Compile>
     <Compile Include="Controls\DeepInDIY\ColorPicker.cs" />
+    <Compile Include="Controls\DeepInDIY\FlipPannel.cs" />
     <Compile Include="Views\ColorPickerDemoPage.xaml.cs">
       <DependentUpon>ColorPickerDemoPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\FlipPannelDemoPage.xaml.cs">
+      <DependentUpon>FlipPannelDemoPage.xaml</DependentUpon>
     </Compile>
     <Page Include="Controls\ColorPicker.xaml">
       <SubType>Designer</SubType>
@@ -81,11 +85,19 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="themes\FlipPannel.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="themes\generic.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\ColorPickerDemoPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\FlipPannelDemoPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

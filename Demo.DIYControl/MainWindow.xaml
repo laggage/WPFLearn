@@ -9,10 +9,11 @@
     <TabControl>
         <TabItem Header="ColorPicker">
             <Frame Source="Views/ColorPickerDemoPage.xaml"
-                   NavigationUIVisibility="Hidden">
-
-            </Frame>
-            
+                   NavigationUIVisibility="Hidden"/>
+        </TabItem>
+        <TabItem Header="FlipPannel">
+            <Frame Source="Views/FlipPannelDemoPage.xaml"
+                   NavigationUIVisibility="Hidden"/>
         </TabItem>
     </TabControl>
 </Window>

@@ -1,0 +1,19 @@
+﻿<Page x:Class="Demo.DIYControl.Views.FlipPannelDemoPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:ctrl="clr-namespace:Demo.DIYControl.Controls.DeepInDIY"
+      mc:Ignorable="d" 
+      Title="FlipPannelDemoPage">
+    <Grid>
+        <ctrl:FlipPannel>
+            <ctrl:FlipPannel.FrontContent>
+                <TextBlock>这是正面</TextBlock>
+            </ctrl:FlipPannel.FrontContent>
+            <ctrl:FlipPannel.BackContent>
+                <TextBlock Text="这是反面"></TextBlock>
+            </ctrl:FlipPannel.BackContent>
+        </ctrl:FlipPannel>
+    </Grid>
+</Page>
