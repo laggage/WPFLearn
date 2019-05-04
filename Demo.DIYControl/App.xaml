@@ -4,6 +4,14 @@
              xmlns:local="clr-namespace:Demo.DIYControl"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-         
+
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/Demo.DIYControl;component/Styles/Colors.xaml"/>
+                <ResourceDictionary Source="pack://application:,,,/Demo.DIYControl;component/Styles/Accents/Steel.xaml"/>
+
+                <ResourceDictionary Source="pack://application:,,,/Demo.DIYControl;component/Themes/FlipPannel.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
     </Application.Resources>
 </Application>

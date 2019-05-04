@@ -1,7 +1,10 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
     <ResourceDictionary.MergedDictionaries>
-        <ResourceDictionary Source="/Demo.DIYControl;component/themes/ColorPicker.xaml"/>
-        <ResourceDictionary Source="/Demo.DIYControl;component/themes/FlipPannel.xaml"/>
+        <ResourceDictionary Source="/Demo.DIYControl;component/Styles/Colors.xaml"/>
+        <ResourceDictionary Source="pack://application:,,,/Demo.DIYControl;component/Styles/Accents/Steel.xaml"/>
+
+        <ResourceDictionary Source="pack://application:,,,/Demo.DIYControl;component/Themes/ColorPicker.xaml"/>
+        <ResourceDictionary Source="pack://application:,,,/Demo.DIYControl;component/Themes/FlipPannel.xaml"/>
     </ResourceDictionary.MergedDictionaries>
 </ResourceDictionary>

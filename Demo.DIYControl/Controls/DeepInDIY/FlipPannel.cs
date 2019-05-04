@@ -53,6 +53,30 @@ namespace Demo.DIYControl.Controls.DeepInDIY
             DependencyProperty.Register(nameof(CornerRadius), typeof(CornerRadius), typeof(FlipPannel),
             new FrameworkPropertyMetadata(default(CornerRadius)));
 
+        /// <summary>
+        /// The content need to be displayed aside the filpbutton which may be an icon button
+        /// </summary>
+        public object FlipHeader
+        {
+            get => GetValue(FlipHeaderProperty);
+            set => SetValue(FlipHeaderProperty, value);
+        }
+        public static readonly DependencyProperty FlipHeaderProperty =
+            DependencyProperty.Register(
+                nameof(FlipHeader), typeof(object),typeof(FlipPannel), new FrameworkPropertyMetadata(null));
+
+        /// <summary>
+        /// The content which will be displayed upon the top of the card
+        /// </summary>
+        public object Header
+        {
+            get => GetValue(HeaderProperty);
+            set => SetValue(HeaderProperty, value);
+        }
+        public static readonly DependencyProperty HeaderProperty =
+            DependencyProperty.Register(
+                nameof(Header), typeof(object), typeof(FlipPannel),
+                new FrameworkPropertyMetadata(null));
 
         static FlipPannel()
         {
@@ -65,11 +89,11 @@ namespace Demo.DIYControl.Controls.DeepInDIY
         {
             base.OnApplyTemplate();
 
-            ToggleButton btn = GetTemplateChild(FlipButtonName) as ToggleButton;
-            if (btn != null) btn.Click += flipButton_Click;
+            if (GetTemplateChild(FlipButtonName) is ToggleButton btn)
+                btn.Click += flipButton_Click;
 
-            ToggleButton btnAlternate = GetTemplateChild(FlipButtonAlternateName) as ToggleButton;
-            if (btnAlternate != null) btnAlternate.Click += flipButton_Click;
+            if (GetTemplateChild(FlipButtonAlternateName) is ToggleButton btnAlternate)
+                btnAlternate.Click += flipButton_Click;
 
             ChangeVisualState();
         }

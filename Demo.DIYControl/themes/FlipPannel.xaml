@@ -3,11 +3,12 @@
                     xmlns:control="clr-namespace:Demo.DIYControl.Controls.DeepInDIY" >
 
     <Style x:Key="FlipPannelToggleBtn" TargetType="{x:Type ToggleButton}">
-        <Setter Property="Background" Value="Transparent"/>
-        <Setter Property="BorderThickness" Value="0"/>
+        <Setter Property="Background" Value="{DynamicResource TransparentWhiteBrush}"/>
         <Setter Property="HorizontalContentAlignment" Value="Center"/>
         <Setter Property="VerticalContentAlignment" Value="Center"/>
         <Setter Property="IsTabStop" Value="False"/>
+        <Setter Property="BorderBrush" Value="{x:Null}"/>
+        <Setter Property="BorderThickness" Value="0"/>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type ToggleButton}">
@@ -31,19 +32,20 @@
         </Setter>
     </Style>
 
-    <Style TargetType="{x:Type control:FlipPannel}">
+    <Style x:Key="FlipPannelStyle" TargetType="{x:Type control:FlipPannel}">
         <Setter Property="IsTabStop" Value="False"/>
-        <Setter Property="BorderBrush" Value="Black"/>
-        <Setter Property="BorderThickness" Value="0"/>
-        <Setter Property="Padding" Value="3"/>
-
+        <Setter Property="Background" Value="{DynamicResource WhiteBrush}"/>
+        <Setter Property="BorderBrush" Value="{DynamicResource BlackBrush}"/>
+        <Setter Property="BorderThickness" Value="1"/>
+        <Setter Property="Foreground" Value="{DynamicResource TextBrush}"/>
+        <Setter Property="Padding" Value="0"/>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type control:FlipPannel}">
                     <ControlTemplate.Resources>
                         <Storyboard x:Key="SetArrowColor">
                             <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Shape.Fill).(SolidColorBrush.Color)" Storyboard.TargetName="ArrowPath">
-                                <EasingColorKeyFrame KeyTime="0:0:0.2" Value="#FF2DB6A3">
+                                <EasingColorKeyFrame KeyTime="0:0:0.2" Value="#FF7F7F7F">
                                     <EasingColorKeyFrame.EasingFunction>
                                         <QuadraticEase EasingMode="EaseIn"/>
                                     </EasingColorKeyFrame.EasingFunction>
@@ -186,7 +188,7 @@
                                 <Path x:Name="ArrowPath" HorizontalAlignment="Center"
                                       VerticalAlignment="Center" 
                                       Stretch="Uniform"
-                                      Fill="Black" 
+                                      Fill="{DynamicResource BlackColorBrush}" 
                                       Data="M5.59,7.41L7,6L13,12L7,18L5.59,16.59L10.17,12L5.59,7.41M11.59,7.41L13,6L19,12L13,18L11.59,16.59L16.17,12L11.59,7.41Z"/>
 
                             </ToggleButton>
@@ -214,7 +216,236 @@
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
-        <Setter Property="Padding" Value="2,3,3,3"/>
     </Style>
+
+    <Style x:Key="FlipPannelHasHeadersStyle" TargetType="{x:Type control:FlipPannel}">
+        <Setter Property="IsTabStop" Value="False"/>
+        <Setter Property="Background" Value="{DynamicResource WhiteBrush}"/>
+        <Setter Property="BorderBrush" Value="{DynamicResource BlackBrush}"/>
+        <Setter Property="BorderThickness" Value="1"/>
+        <Setter Property="Foreground" Value="{DynamicResource TextBrush}"/>
+        <Setter Property="Padding" Value="0"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type control:FlipPannel}">
+                    <ControlTemplate.Resources>
+                        <Storyboard x:Key="SetArrowColor">
+                            <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Shape.Fill).(SolidColorBrush.Color)" Storyboard.TargetName="ArrowPath">
+                                <EasingColorKeyFrame KeyTime="0:0:0.2" Value="#FF7F7F7F">
+                                    <EasingColorKeyFrame.EasingFunction>
+                                        <QuadraticEase EasingMode="EaseIn"/>
+                                    </EasingColorKeyFrame.EasingFunction>
+                                </EasingColorKeyFrame>
+                            </ColorAnimationUsingKeyFrames>
+                        </Storyboard>
+                        <Storyboard x:Key="ScaleArrow">
+                            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleX)" Storyboard.TargetName="PART_FlipButton">
+                                <EasingDoubleKeyFrame KeyTime="0:0:0.1" 
+                                                      Value="0.8">
+                                    <EasingDoubleKeyFrame.EasingFunction>
+                                        <QuadraticEase EasingMode="EaseIn"/>
+                                    </EasingDoubleKeyFrame.EasingFunction>
+                                </EasingDoubleKeyFrame>
+                            </DoubleAnimationUsingKeyFrames>
+                            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleY)" Storyboard.TargetName="PART_FlipButton">
+                                <EasingDoubleKeyFrame KeyTime="0:0:0.1" 
+                                                      Value="0.8">
+                                    <EasingDoubleKeyFrame.EasingFunction>
+                                        <QuarticEase EasingMode="EaseIn"/>
+                                    </EasingDoubleKeyFrame.EasingFunction>
+                                </EasingDoubleKeyFrame>
+                            </DoubleAnimationUsingKeyFrames>
+                        </Storyboard>
+                    </ControlTemplate.Resources>
+                    <Border BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            Background="{TemplateBinding Background}"
+                            CornerRadius="{TemplateBinding CornerRadius}"
+                            Effect="{TemplateBinding Effect}">
+                        <VisualStateManager.VisualStateGroups>
+                            <VisualStateGroup x:Name="ViewStates">
+                                <VisualStateGroup.Transitions>
+                                    <VisualTransition From="Fliped" 
+                                                      GeneratedDuration="0:0:0.3" 
+                                                      To="Normal">
+                                        <VisualTransition.GeneratedEasingFunction>
+                                            <SineEase EasingMode="EaseIn"/>
+                                        </VisualTransition.GeneratedEasingFunction>
+                                        <Storyboard>
+                                            <DoubleAnimation Duration="0" 
+                                                             To="0" 
+                                                             Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="BackContent">
+                                                <DoubleAnimation.EasingFunction>
+                                                    <SineEase EasingMode="EaseIn"/>
+                                                </DoubleAnimation.EasingFunction>
+                                            </DoubleAnimation>
+                                            <DoubleAnimation Duration="0" Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="FrontContent">
+                                                <DoubleAnimation.EasingFunction>
+                                                    <SineEase EasingMode="EaseIn"/>
+                                                </DoubleAnimation.EasingFunction>
+                                            </DoubleAnimation>
+                                            <DoubleAnimation Duration="0:0:0.3" To="0" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[2].(RotateTransform.Angle)" Storyboard.TargetName="PART_FlipButton">
+                                                <DoubleAnimation.EasingFunction>
+                                                    <SineEase EasingMode="EaseIn"/>
+                                                </DoubleAnimation.EasingFunction>
+                                            </DoubleAnimation>
+                                        </Storyboard>
+                                    </VisualTransition>
+                                    <VisualTransition From="Normal" 
+                                                      GeneratedDuration="0:0:0.3" 
+                                                      To="Fliped">
+                                        <VisualTransition.GeneratedEasingFunction>
+                                            <SineEase EasingMode="EaseOut"/>
+                                        </VisualTransition.GeneratedEasingFunction>
+                                        <Storyboard>
+                                            <DoubleAnimation Duration="0:0:0.3" 
+                                                             From="0" 
+                                                             To="180" 
+                                                             Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[2].(RotateTransform.Angle)" 
+                                                             Storyboard.TargetName="PART_FlipButton"/>
+                                            <DoubleAnimation Duration="0" From="0" 
+                                                             Storyboard.TargetProperty="(UIElement.Opacity)" 
+                                                             Storyboard.TargetName="BackContent" 
+                                                             To="1"/>
+                                            <DoubleAnimation Duration="0" To="0" Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="FrontContent">
+                                                <DoubleAnimation.EasingFunction>
+                                                    <SineEase EasingMode="EaseOut"/>
+                                                </DoubleAnimation.EasingFunction>
+                                            </DoubleAnimation>
+                                        </Storyboard>
+                                    </VisualTransition>
+                                </VisualStateGroup.Transitions>
+                                <VisualState x:Name="Fliped">
+                                    <Storyboard>
+                                        <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[2].(RotateTransform.Angle)" 
+                                                               Storyboard.TargetName="PART_FlipButton">
+                                            <EasingDoubleKeyFrame KeyTime="0" Value="180"/>
+                                        </DoubleAnimationUsingKeyFrames>
+                                        <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" 
+                                                                       Storyboard.TargetName="FrontContent">
+                                            <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                                        </DoubleAnimationUsingKeyFrames>
+                                    </Storyboard>
+                                </VisualState>
+                                <VisualState x:Name="Normal">
+                                    <Storyboard>
+                                        <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[2].(RotateTransform.Angle)" 
+                                                               Storyboard.TargetName="PART_FlipButton">
+                                            <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                                        </DoubleAnimationUsingKeyFrames>
+                                        <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" 
+                                                                       Storyboard.TargetName="BackContent">
+                                            <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                                        </DoubleAnimationUsingKeyFrames>
+                                    </Storyboard>
+                                </VisualState>
+                            </VisualStateGroup>
+                        </VisualStateManager.VisualStateGroups>
+
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition/>
+                                <ColumnDefinition Width="Auto"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+
+                            <!--Header content-->
+                            <ContentPresenter HorizontalAlignment ="Stretch" 
+                                              VerticalAlignment="Stretch" 
+                                              Grid.ColumnSpan="2"
+                                              Content="{TemplateBinding Header}">
+                                
+                            </ContentPresenter>
+                            
+                            <!--Back content-->
+                            <ContentPresenter x:Name="BackContent" 
+                                              Margin="{TemplateBinding Padding}" 
+                                            Content="{TemplateBinding BackContent}" 
+                                              Grid.Row="1" 
+                                              Grid.ColumnSpan="2"/>
+                            <!--Front content-->
+                            <ContentPresenter x:Name="FrontContent" 
+                                              Margin="{TemplateBinding Padding}" 
+                                            Content="{TemplateBinding FrontContent}" 
+                                              Grid.Row="1" 
+                                              Grid.ColumnSpan="2"/>
+
+                            <ContentPresenter HorizontalAlignment="Stretch" 
+                                              VerticalAlignment="Stretch"
+                                              Content="{TemplateBinding FlipHeader}" 
+                                              Grid.Row="2" 
+                                              Grid.Column="0"/>
+                            <ToggleButton x:Name="PART_FlipButton" 
+                                          Grid.Row="2" 
+                                          Margin="3,0,3,3"
+                                          Style="{StaticResource FlipPannelToggleBtn}" 
+                                          RenderTransformOrigin="0.5,0.5" 
+                                          HorizontalAlignment="Center"
+                                          Grid.Column="1" >
+                                <ToggleButton.RenderTransform>
+                                    <TransformGroup>
+                                        <ScaleTransform/>
+                                        <SkewTransform/>
+                                        <RotateTransform/>
+                                        <TranslateTransform/>
+                                    </TransformGroup>
+                                </ToggleButton.RenderTransform>
+
+                                <Path x:Name="ArrowPath" HorizontalAlignment="Center"
+                                      VerticalAlignment="Center" 
+                                      Stretch="Uniform"
+                                      Fill="{DynamicResource BlackColorBrush}" 
+                                      Data="M5.59,7.41L7,6L13,12L7,18L5.59,16.59L10.17,12L5.59,7.41M11.59,7.41L13,6L19,12L13,18L11.59,16.59L16.17,12L11.59,7.41Z"/>
+
+                            </ToggleButton>
+                        </Grid>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsPressed" Value="True" SourceName="PART_FlipButton">
+                            <Trigger.ExitActions>
+                                <StopStoryboard BeginStoryboardName="ScaleArrow_BeginStoryboard"/>
+                            </Trigger.ExitActions>
+                            <Trigger.EnterActions>
+                                <BeginStoryboard x:Name="ScaleArrow_BeginStoryboard" Storyboard="{StaticResource ScaleArrow}"/>
+                            </Trigger.EnterActions>
+                        </Trigger>
+                        <Trigger Property="IsMouseOver" Value="True" SourceName="PART_FlipButton">
+                            <Trigger.ExitActions>
+                                <StopStoryboard BeginStoryboardName="SetArrowColor_BeginStoryboard"/>
+                            </Trigger.ExitActions>
+                            <Trigger.EnterActions>
+                                <BeginStoryboard x:Name="SetArrowColor_BeginStoryboard" Storyboard="{StaticResource SetArrowColor}"/>
+                            </Trigger.EnterActions>
+                            <Setter Property="Foreground" TargetName="PART_FlipButton" Value="Snow"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="AccentFlipPannelStyle"
+           TargetType="{x:Type control:FlipPannel}">
+        <Setter Property="BorderBrush" Value="{DynamicResource AccentBaseColorBrush}"/>
+    </Style>
+
+    <Style x:Key="TransitionFilpPannel" TargetType="{x:Type control:FlipPannel}">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type control:FlipPannel}">
+
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!-- default flip pannel style-->
+    <Style BasedOn="{StaticResource FlipPannelStyle}"
+           TargetType="{x:Type control:FlipPannel}"/>
+
 </ResourceDictionary>
     
