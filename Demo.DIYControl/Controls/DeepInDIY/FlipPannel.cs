@@ -10,6 +10,7 @@ namespace Demo.DIYControl.Controls.DeepInDIY
     [TemplatePart(Name = FlipButtonAlternateName, Type = typeof(ToggleButton))]
     public class FlipPannel:Control
     {
+        
         private const string FlipButtonName = "PART_FlipButton";
         private const string FlipButtonAlternateName = "PART_FlipButtonAlternate";
 
@@ -41,7 +42,7 @@ namespace Demo.DIYControl.Controls.DeepInDIY
         // Using a DependencyProperty as the backing store for IsFilped.  This enables animation, styling, binding, etc...
         public static readonly DependencyProperty IsFilpedProperty =
             DependencyProperty.Register(nameof(IsFilped), typeof(bool), typeof(FlipPannel),
-            new FrameworkPropertyMetadata(default(bool)));
+            new FrameworkPropertyMetadata(false));
 
         public CornerRadius CornerRadius
         {

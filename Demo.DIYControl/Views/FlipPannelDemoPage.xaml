@@ -11,6 +11,7 @@
             <ColumnDefinition Width="Auto"/>
             <ColumnDefinition Width="Auto"/>
             <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="Auto"/>
         </Grid.ColumnDefinitions>
 
         <ctrl:FlipPannel 
@@ -116,6 +117,57 @@
                         <RowDefinition Height="auto"/>
                     </Grid.RowDefinitions>
                 
+                    <Image Grid.Row="1" Stretch="Uniform" 
+                           Source="/Assets/beauty.jpg"
+                           HorizontalAlignment="Center"/>
+                    <TextBlock Grid.Row="2" 
+                               Text="这是正面,反面更精彩." 
+                               HorizontalAlignment="Center" 
+                               Padding="0,3"/>
+                </Grid>
+            </ctrl:FlipPannel.FrontContent>
+            <ctrl:FlipPannel.BackContent>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="auto"/>
+                    </Grid.RowDefinitions>
+                    <TextBlock Text="反面让你失望了嘛,哈哈."
+                               Grid.Row="1" 
+                               HorizontalAlignment="Center" Padding="0,3"/>
+                    <Image Source="/Demo.DIYControl;component/Assets/beauty2.jpg"/>
+                </Grid>
+            </ctrl:FlipPannel.BackContent>
+        </ctrl:FlipPannel>
+
+        <ctrl:FlipPannel Grid.Column="3"
+                         MaxHeight="400"
+                         Margin="10"
+                         Style="{StaticResource ThemeStyle.TransitionFilpPannel}">
+            <ctrl:FlipPannel.FlipHeader>
+                <Border>
+                    <TextBlock Text="去反面" HorizontalAlignment="Center"/>
+                </Border>
+            </ctrl:FlipPannel.FlipHeader>
+            <ctrl:FlipPannel.Header>
+                <Border Grid.Row="0"
+                            BorderThickness="0"
+                            Background="{DynamicResource AccentBaseColorBrush}">
+                    <TextBlock Text="AccentFlipPannel"
+                                   Padding="0 10"
+                                   VerticalAlignment="Center"
+                                   HorizontalAlignment="Center"
+                                   Foreground="White"/>
+                </Border>
+            </ctrl:FlipPannel.Header>
+            <ctrl:FlipPannel.FrontContent>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="auto"/>
+                    </Grid.RowDefinitions>
+
                     <Image Grid.Row="1" Stretch="Uniform" 
                            Source="/Assets/beauty.jpg"
                            HorizontalAlignment="Center"/>
