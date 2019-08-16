@@ -1,0 +1,19 @@
+﻿<Window x:Class="Demo.DataValidation.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Demo.DataValidation"
+        xmlns:views="clr-namespace:Demo.DataValidation.Views"
+        mc:Ignorable="d"
+        Title="MainWindow" 
+        Height="240" 
+        Width="620">
+    <Border>
+        <TabControl>
+            <TabItem Header="书籍录入">
+                <views:BookInfoInputView></views:BookInfoInputView>
+            </TabItem>
+        </TabControl>
+    </Border>
+</Window>

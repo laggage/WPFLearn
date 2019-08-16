@@ -11,7 +11,7 @@
             <Frame Source="Views/ColorPickerDemoPage.xaml"
                    NavigationUIVisibility="Hidden"/>
         </TabItem>
-        <TabItem Header="FlipPannel">
+        <TabItem Header="FlipPanel">
             <Frame Source="Views/FlipPannelDemoPage.xaml"
                    NavigationUIVisibility="Hidden"/>
         </TabItem>
